@@ -2,41 +2,39 @@
   <nav>
     <!-- <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> -->
-    <AllEmployeeList />
+    <AllStaffList />
   </nav>
   <router-view/>
 </template>
 
 <script>
-import AllEmployeeList from './components/AllEmployeeList.vue'
+import AllStaffList from './components/AllStaffList.vue'
 
 export default {
   name: 'App',
   components: {
-    AllEmployeeList,
+    AllStaffList,
   },
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-
-nav {
+body {
+  font-family: 'Poppins', sans-serif;
+}
+.container {
+  max-width: 500px;
+  margin: 30px auto;
+  overflow: auto;
+  min-height: 300px;
+  border: 1px solid steelblue;
   padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+  border-radius: 5px;
 }
 </style>
