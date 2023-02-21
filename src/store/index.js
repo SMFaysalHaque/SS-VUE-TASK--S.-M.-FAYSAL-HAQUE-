@@ -1,4 +1,4 @@
-import { createStore } from 'vuex'
+import { createStore } from "vuex";
 
 export default createStore({
   state: {
@@ -25,29 +25,43 @@ export default createStore({
     admins: [
       {
         'Name': 'Faysal',
-        'Permission': ['Accounts', 'Read-Only', 'Add-Staff'],
+        'Permission': 'Read-Only',
         'E-mail': 'faysal_004@gmail.com',
         'Phone': '01786-5412897'
       },
       {
         'Name': 'Rewon',
-        'Permission': ['Accounts', 'Add-Staff', 'Remove-Staff', 'Modify-Staff'],
+        'Permission': 'Accounts',
         'E-mail': 'rewon_005@gmail.com',
         'Phone': '01786-5486655'
       }
     ]
   },
   mutations: {
-    addStaff(state, staff){
-      // state.counter++
-      // console.log('randomNumber:', randomNumber);
-      console.log(staff);
-      if('Designation' in staff){
+    addStaff(state, staff) {
+      if ("Designation" in staff) {
         state.employees.push(staff);
-      }
-      else{
+      } else {
         state.admins.push(staff);
       }
     },
+    removeStaff(state, staff) {
+      let indexOfRemovedStaff = -1;
+      if ("Designation" in staff) {
+        state.employees.forEach((employee, index) => {
+          if (staff["E-mail"] === employee["E-mail"]) {
+            indexOfRemovedStaff = index;
+          }
+        });
+        state.employees.splice(indexOfRemovedStaff, 1);
+      } else {
+        state.admins.forEach((admin, index) => {
+          if (staff["E-mail"] === admin["E-mail"]) {
+            indexOfRemovedStaff = index;
+          }
+        });
+        state.admins.splice(indexOfRemovedStaff, 1);
+      }
+    },
   },
-})
+});

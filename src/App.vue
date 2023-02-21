@@ -1,20 +1,10 @@
 <template>
-  <nav>
-    <!-- <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> -->
-    <AllStaffList />
-  </nav>
   <router-view/>
 </template>
 
 <script>
-import AllStaffList from './components/AllStaffList.vue'
-
 export default {
   name: 'App',
-  components: {
-    AllStaffList,
-  },
 }
 </script>
 
